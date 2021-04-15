@@ -5,6 +5,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 public class ClassTest {
+
     @BeforeSuite
     public void beforeSuite() {
         System.out.println("This method testing first");
