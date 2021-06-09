@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeSuite;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.text.Annotation;
 import java.util.*;
 
 public class TestingAll {
@@ -54,19 +52,13 @@ public class TestingAll {
 
             }
         }
-/*
-        System.out.println("Map:");
-        for (Integer key : map.keySet()) {
-            System.out.println("priority:" + key + " " + map.get(key));
-        }
-*/
+
         try {
             Object testCase = className.newInstance(); // объект для Reflections
             for (Integer key : map.keySet()) {
                 for (Method m: map.get(key)) {
                     m.invoke(testCase);
                 }
-            //    map.get(key).invoke(testCase);
             }
         }
         catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
